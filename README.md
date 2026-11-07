@@ -19,4 +19,6 @@ The API base URL is `src/environments/environment.ts` (`http://localhost:8080` b
 
 ## Backend requirement
 
-The backend's CORS config must allow the `X-Admin-Key` header. Add `allowHeader("X-Admin-Key")` in `Application.kt`. Without it, browser preflight requests fail.
+Configure `ADMIN_API_KEY` in the backend's ignored `.env` file and start the backend.
+Use that same key to sign in here. The backend requires this secret at startup, and
+restricted endpoints remain protected server-side. Do not commit or share the key.
