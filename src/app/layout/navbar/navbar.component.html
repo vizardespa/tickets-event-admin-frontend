@@ -1,0 +1,29 @@
+<mat-toolbar color="primary" class="flex items-center gap-2 shadow-md">
+  <a routerLink="/tickets" class="flex items-center gap-2 no-underline">
+    <mat-icon>admin_panel_settings</mat-icon>
+    <span class="text-lg font-semibold">TicketHub Admin</span>
+  </a>
+
+  <span class="flex-1"></span>
+
+  @if (auth.key()) {
+    <nav class="flex items-center gap-1">
+      <a mat-button routerLink="/tickets" routerLinkActive="!bg-white/20" [routerLinkActiveOptions]="{ exact: true }">
+        <mat-icon>local_activity</mat-icon>
+        <span class="ml-1 hidden sm:inline">Tickets</span>
+      </a>
+      <a mat-button routerLink="/tickets/new" routerLinkActive="!bg-white/20">
+        <mat-icon>add_card</mat-icon>
+        <span class="ml-1 hidden sm:inline">Manual ticket</span>
+      </a>
+      <a mat-button routerLink="/events" routerLinkActive="!bg-white/20">
+        <mat-icon>event</mat-icon>
+        <span class="ml-1 hidden sm:inline">Events</span>
+      </a>
+      <button mat-button (click)="logout()">
+        <mat-icon>logout</mat-icon>
+        <span class="ml-1 hidden sm:inline">Sign out</span>
+      </button>
+    </nav>
+  }
+</mat-toolbar>
